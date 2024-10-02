@@ -1,4 +1,5 @@
-﻿using PruebaThinkUs.Datos;
+﻿using Microsoft.EntityFrameworkCore;
+using PruebaThinkUs.Datos;
 using PruebaThinkUs.Models;
 
 namespace PruebaThinkUs.Services
@@ -30,6 +31,14 @@ namespace PruebaThinkUs.Services
 
         public void Update(Empleado empleado)
         {
+            var existingEntity = _context.Empleado.Local.FirstOrDefault(e => e.Id == empleado.Id);
+
+            if (existingEntity != null)
+            {
+                // Si ya hay una instancia, desvincúlala antes de adjuntar la nueva
+                _context.Entry(existingEntity).State = EntityState.Detached;
+            }
+
             _context.Empleado.Update(empleado);
             _context.SaveChanges();
         }

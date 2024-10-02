@@ -10,14 +10,14 @@ namespace PruebaThinkUs.Models
         [Required(ErrorMessage = "El nombre es obligatorio")]
         public string? Nombre { get; set; }
 
-        [Required(ErrorMessage = "El teléfono es obligatorio")]
-        public string? Telefono { get; set; }
+        [Required(ErrorMessage = "La posición es obligatoria")]
+        public string? Posicion { get; set; }
 
-        [Required(ErrorMessage = "El celular es obligatorio")]
-        public string? Celular { get; set; }
+        [Required(ErrorMessage = "La descripción es obligatoria")]
+        public string? Descripcion { get; set; }
 
-        [Required(ErrorMessage = "El email es obligatorio")]
-        public string? Email { get; set; }
+        [Required(ErrorMessage = "El estado es obligatorio")]
+        public bool? Estado { get; set; }
 
         public DateTime FechaCreacion { get; set; }
 
