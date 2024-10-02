@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PruebaThinkUs.Datos;
+using PruebaThinkUs.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(opciones =>
             opciones.UseSqlServer(builder.Configuration.GetConnectionString("ConexionSql")));
 
+// Registrar el servicio EmpleadoService para inyección de dependencias
+builder.Services.AddScoped<IEmpleadoService, EmpleadoService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
