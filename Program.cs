@@ -12,6 +12,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(opciones =>
 
 // Registrar el servicio EmpleadoService para inyección de dependencias
 builder.Services.AddScoped<IEmpleadoService, EmpleadoService>();
+builder.Services.AddScoped<IAlumnoService, AlumnoService>();
+builder.Services.AddScoped<IProfesorService, ProfesorService>();
+builder.Services.AddScoped<IGradoService, GradoService>();
+builder.Services.AddScoped<IAlumnoGradoService, AlumnoGradoService>();
 
 // Configurar CORS
 builder.Services.AddCors(options =>
